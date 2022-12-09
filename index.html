@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Excel File to CSV File Converter</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <ul class="topNav">
+      <li><a href='#mainWorkingArea'>Home</a></li>
+      <li><a href='#member'>Group Member Details</a></li>
+  </ul>
+
+  <div class="fishSwimming">
+    <img class="fish1" src="fish.png">
+    <img class="fish2" src="fish-2.png">
+    <img class="fish3" src="fish-3.png">
+  </div>
+
+  <section id="mainWorkingArea">
+    <div class="alert">
+      <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+      Welcome to the Excel File to .csv File Converter!
+      <button class="button showTutorial" onclick="myalert()">
+        Show me how to use this tool.
+      </button>
+    </div>
+
+    <div class="drag-area">
+      
+      <div class="icon"><i class="fas fa-cloud-upload-alt"></i></div>
+      <header>Drag & Drop to Upload File</header>
+      <span>OR</span>
+      <button>Browse Local File</button>
+      <form action="upload.php" method="post" enctype="multipart/form-data" id="dragDropForm">
+      <input type="file" name="uploadFile" id="file_upload" accept=".xlsx, .xls" hidden/>
+    </div>
+    <input type="submit" value="Submit" class="confirmSubmit" onclick="checkFile()" id="submit"> 
+    </form>
+
+    
+  </div>
+
+  <footer section id="member">
+    <ul class="memberlist">
+      <li>ONG CHU JUN <br> (158964)</li>
+      <li>TAI ZEE CHING <br> (158438)</li>
+      <li>TAN KIAN HON <br> (158822)</li>
+      <li>YEOH HUEY JING <br> (159811)</li>
+    </ul>
+  </footer>
+  
+
+</div>
+  
+  
+  <script>
+      function myalert() {
+          alert("To convert your excel file to .csv file,\n" +
+              "Drag and Drop your excel file in the box below\n" +
+              "OR click on the Browse Local File to select the file.");
+      }
+  </script>
+
+  <script src="script.js"></script>
+
+</body>
+</html>

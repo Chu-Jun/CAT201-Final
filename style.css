@@ -1,0 +1,297 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+body{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background: #9cd0e2;
+  background-image:url('water-wave.gif'); 
+  background-repeat:repeat;
+}
+
+
+.topNav{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 5px;
+  color: white;
+  background-color: rgba(0,0,0,0.5);
+  position: sticky;
+  top: 0;
+  list-style-type: none;
+  margin: 0;
+}
+
+.topNav li{
+  font-family: century;
+  font-size: 17px;
+  font-weight: bold;
+  padding: 5px;
+  flex-wrap: wrap;
+}
+
+.topNav li a{
+  text-decoration: none;
+  color: white;
+  padding: 8px 25px;
+}
+
+.topNav li a:hover{
+  background-color: white;
+  color: black;
+  box-shadow: 0 0 10px white;
+}
+
+.fish1{
+  max-width: 100px;
+  position: absolute;
+  z-index: -1;
+  left: 0;
+  top: 0px;
+  animation: swimUpDown 1.5s cubic-bezier(0.445, 0.05, 0.55, 0.95) infinite alternate,
+  /* wave 2s cubic-bezier(0.445, 0.05, 0.55, 0.95) infinite alternate, */
+  swim 30s cubic-bezier(0.445, 0.05, 0.55, 0.95) infinite normal;
+}
+
+.fish2{
+  max-width: 100px;
+  position: absolute;
+  right: 0px;
+  top: 50%;
+  animation: swimUpDown 1.5s cubic-bezier(0.445, 0.05, 0.55, 0.95) infinite alternate,
+  /* wave 2s cubic-bezier(0.445, 0.05, 0.55, 0.95) infinite alternate, */
+  swimRightLeft 35s cubic-bezier(0.445, 0.05, 0.55, 0.95) infinite normal;
+}
+
+.fish3{
+  max-width: 100px;
+  position: absolute;
+  z-index: -1;
+  left: 0;
+  bottom: 0px;
+  animation: swimUpDown 1.5s cubic-bezier(0.445, 0.05, 0.55, 0.95) infinite alternate,
+  /* wave 2s cubic-bezier(0.445, 0.05, 0.55, 0.95) infinite alternate, */
+  swimUp 30s cubic-bezier(0.445, 0.05, 0.55, 0.95) infinite normal;
+}
+
+@keyframes wave{
+  0%{
+    top: 5%;
+  }
+  100%{
+    top: 10%;
+  }
+}
+
+@keyframes swimRightLeft{
+  from{ tranform: translateX(1000px)}
+  to{ transform: translateX(-1000px)}
+}
+
+@keyframes swim{
+  from{ tranform: translateX(-200px) translateY(-10px)}
+  to{ transform: translateX(1000px) translateY(500px)}
+}
+
+@keyframes swimUp{
+  from{ tranform: translateX(-200px) translateY(10px)}
+  to{ transform: translateX(1000px) translateY(-500px)}
+}
+
+@keyframes swimUpDown{
+  0%{
+    transform: rotateZ(-20deg);
+  }
+  50%{
+    transform: rotateZ(10deg);
+  }
+  100%{
+    transform: rotateZ(15deg);
+  }
+}
+
+
+/* Main container to display alert box and drag and drop area in row */
+#mainWorkingArea{
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  flex-wrap:wrap;
+}
+.alert {
+  align-items: flex-start;
+  margin: 20px;
+  padding: 20px;
+  border-radius: 15px;
+  background-color: #5256ad; 
+  color: white;
+  margin-bottom: 15px;
+}
+.showTutorial{
+  padding: 15px;
+  border-radius: 15px;
+}
+
+/* The close button */
+.closebtn {
+  margin-left: 10px;
+  color: white;
+  font-weight: bold;
+  float: right;
+  font-size: 22px;
+  line-height: 10px;
+  cursor: pointer;
+}
+.closebtn:hover {
+  color: black;
+}
+
+/* The drag and drop area */
+.drag-area{
+  border: 4px dashed #fff;
+  height: 500px;
+  width: 700px;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.drag-area.active{
+  border: 2px solid #fff;
+}
+.drag-area .icon{
+  font-size: 100px;
+  color: #fff;
+}
+.drag-area header{
+  font-size: 30px;
+  font-weight: 500;
+  color: #fff;
+}
+.drag-area span{
+  font-size: 25px;
+  font-weight: 500;
+  color: #fff;
+  margin: 10px 0 15px 0;
+}
+.drag-area button{
+  padding: 10px 25px;
+  font-size: 20px;
+  font-weight: 500;
+  border: none;
+  outline: none;
+  background: #fff;
+  color: #5256ad;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.drag-area img{
+  height: 90%;
+  width: 90%;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+.upload{
+  position: relative;
+  padding: 0px;
+  border-radius: 12px;
+  background-color: transparent; 
+  display: inline-block;
+  font-size: 16px;
+}
+
+.confirmSubmit{
+  position: relative;
+  left: 230px;
+  margin-top: 10px;
+  padding: 10px;
+  border-radius: 12px;
+  border: none;
+  background-color: #5256ad; 
+  color: white;
+  display: inline-block;
+  font-size: 16px;
+}
+
+/* .confirmSubmit a{
+  color: white;
+} */
+
+.confirmSubmit:hover{
+  box-shadow: #fff 10px;
+  background-color: aliceblue;
+}
+
+/* .confirmSubmit:hover a{
+  color: black;
+}
+
+#confirmButton{
+  color: black;
+} */
+
+/* input[type=submit]{
+  border: none;
+  color: black;
+  padding: 16px 32px;
+  text-decoration: none;
+  margin: 4px 2px;
+  cursor: pointer;
+} */
+
+#member{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width:100%;
+  margin-top: 50px;
+  height: 100px;
+  background-color: #9cd0e2;
+}
+
+.memberlist{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 5px;
+  color: black;
+  background-color: #9cd0e2;
+  position: sticky;
+  list-style-type: none;
+  margin: 0;
+}
+
+.memberlist li{
+  flex-direction: column;
+  font-family: century;
+  font-size: 17px;
+  font-weight: bold;
+  width: 100%;
+  padding: 5px;
+}
+
+a:link { text-decoration: none; }
+
+
+a:visited { text-decoration: none; }
+
+
+a:hover { text-decoration: none; }
+
+
+a:active { text-decoration: none; }

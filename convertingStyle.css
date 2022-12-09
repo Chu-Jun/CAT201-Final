@@ -1,0 +1,142 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background: #9cd0e2;
+}
+
+.loader {
+    position: absolute;
+    bottom: 350px;
+    align-items: center;
+    width: 45px;
+    height: 45px;
+    margin: 90px auto;  
+    animation: spin 2s ease-in-out infinite;
+  }
+  
+  .loading-bubble1,
+  .loading-bubble2{
+    position: absolute;
+    top: 0;
+    width: 25px;
+    height: 25px;
+    border-radius: 100%;
+    background-color: white;
+  }
+  
+  .loading-bubble2 {
+    top: auto;
+    bottom: 0;
+  }
+  
+  .loading-bubble1, .loading-bubble2 {
+    animation: bounce 2s ease-in-out infinite;
+  }
+  
+  .loading-bubble2 {
+    animation-delay: -1.0s;
+  }
+  
+  @keyframes spin {
+    100% {
+      transform: rotate( 360deg );
+    }
+  }
+  
+  @keyframes bounce  {
+    0%, 100% {
+      transform: scale( 0.0 );
+    }
+    
+    50% {
+      transform: scale( 1.0 );
+    }
+  }
+  
+  .sea{
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: row;
+    flex-wrap:wrap;
+  }
+  
+  .boat{
+    max-width: 170px;
+    position: absolute;
+    bottom: 100px;
+    left: 0;
+    animation: upDownBoat 2s cubic-bezier(0.445, 0.05, 0.55, 0.95) infinite alternate, 
+    wave 2s cubic-bezier(0.445, 0.05, 0.55, 0.95) infinite alternate,
+    sail 20s both infinite normal;
+  }
+  
+  @keyframes sail{
+    from{ tranform: translateX(-200px)}
+    to{ transform: translateX(1500px)}
+  }
+  
+  @keyframes upDownBoat{
+    0%{
+      top: 60%;
+    }
+    100%{
+      top: 65%;
+    }
+  }
+  
+  .wave{
+    display: flex;
+    filter: drop-shadow(120 px 0 0 rgba(82,86,173,0.5));
+    position: absolute;
+    bottom: 0;
+  }
+  .wave div{
+    position: relative;
+    width: 40px;
+    height: 200px;
+    margin: 10px;
+    border-radius: 3px;
+    overflow: hidden;
+  }
+  .wave div::before{
+    content: "";
+    width: 300%;
+    height: 100%;
+    background-color: #253da1;
+    position: absolute;
+    overflow: hidden;
+    left: -100%;
+    top: 50%;
+    animation: upDown 2s cubic-bezier(0.445, 0.05, 0.55, 0.95) infinite alternate, 
+    wave 2s cubic-bezier(0.445, 0.05, 0.55, 0.95) infinite alternate;
+    animation-delay: var(--d1), var(--d2);
+  }
+  
+  @keyframes upDown{
+    0%{
+      top: 70%;
+    }
+    100%{
+      top: 30%;
+    }
+  }
+  
+  @keyframes wave{
+    0%{
+      transform: rotateZ(-20deg);
+    }
+    100%{
+      transform: rotateZ(20deg);
+    }
+  }

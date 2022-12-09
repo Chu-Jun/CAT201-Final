@@ -1,0 +1,143 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background-image:url('lighthouse\ -\ 4.gif'); 
+  height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.topNav{
+  top: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 5px;
+  color: white;
+  background-color: rgba(0,0,0,0.5);
+  position: sticky;
+  list-style-type: none;
+  margin: 0;
+}
+
+.topNav li{
+  font-family: century;
+  font-size: 17px;
+  font-weight: bold;
+  padding: 5px;
+  flex-wrap: wrap;
+}
+
+.topNav li a{
+  text-decoration: none;
+  color: white;
+  padding: 8px 25px;
+}
+
+.topNav li a:hover{
+  background-color: white;
+  color: black;
+  box-shadow: 0 0 10px white;
+}
+
+.birds{
+  max-block-size: 100px;
+  animation: fly 10s cubic-bezier(0.445, 0.05, 0.55, 0.95) infinite normal;
+}
+
+@keyframes fly{
+    from{ tranform: translateX(-1000px)}
+    to{ transform: translateX(500px)}
+}
+
+
+.downloadMessage{
+  position: relative;
+  padding: 10px;
+  top: 55%;
+  right: 18%;
+  border: 4px dashed #fff;
+  margin: 20px;
+  height: 200px;
+  width: 700px;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background-color: rgba(255,255,255,0.4);
+}
+
+.convertRepeat{
+  position: relative;
+  padding: 10px;
+  top: 55%;
+  right: 18%;
+  border: 4px dashed #fff;
+  margin: 20px;
+  height: 300px;
+  width: 700px;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background-color: rgba(255,255,255,0.4);
+}
+
+.dwnld{
+  position: relative;
+  left:0%;
+  border-radius: 6px;
+  background-color: #FFFABA;
+  color:black;
+  padding: 10px;
+}
+
+.dwnld a{
+  color: black;
+}
+
+.dwnld:hover{
+  background-color: white;
+}
+
+.backIndex{
+  position: relative;
+  border-radius: 6px;
+  background-color: #FFFABA;
+  color:black;
+  padding: 10px;
+}
+
+.backIndex a{
+  color: black;
+}
+
+.backIndex:hover{
+  background-color: white;
+}
+
+a:link { text-decoration: none; }
+
+
+a:visited { text-decoration: none; }
+
+
+a:hover { text-decoration: none; }
+
+
+a:active { text-decoration: none; }
