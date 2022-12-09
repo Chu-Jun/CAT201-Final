@@ -53,50 +53,55 @@ function checkFile(){
 
 function uploadFiles() {
 
-  var files = document.getElementById('file_upload').files;
+  let fileType = file.type; //getting selected file type
+  let validExtensions = ["application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"]; 
+  if(validExtensions.includes(fileType)){ 
+    var files = document.getElementById('file_upload').files;
 
-  if(dropStatus==false){
-    var filenames="";
+    if(dropStatus==false){
+      var filenames="";
       // Get the filename of file uploaded
-    for(var i=0;i<files.length;i++){
+      for(var i=0;i<files.length;i++){
         filenames+=files[i].name+"\n";
-    }
+      }
   
-    //Ask user to press on the confirm button to proceed
-    alert("Selected file(s) : "+filenames+"\nPress the submit button to convert file uploaded into CSV File."); 
-  }
+      //Ask user to press on the confirm button to proceed
+      alert("Selected file(s) : "+filenames+"\nPress the submit button to convert file uploaded into CSV File."); 
+    }
 
-  if(dropStatus==true){  
-    //Ask user to press on the confirm button to proceed
-    alert("Selected file(s) : "+dropFileName+"\nPress the submit button to convert file uploaded into CSV File."); 
+    if(dropStatus==true){  
+      //Ask user to press on the confirm button to proceed
+      alert("Selected file(s) : "+dropFileName+"\nPress the submit button to convert file uploaded into CSV File."); 
     
-    var formData = new FormData();
-    formData.append("uploadFile", file[0]);
+      var formData = new FormData();
+      formData.append("uploadFile", file[0]);
 
-    alert(formData.get("uploadFile"));
+      var xhttp = new XMLHttpRequest();
 
-    var xhttp = new XMLHttpRequest();
+      // Set POST method and ajax file path
+      xhttp.open("POST", "upload.php", true);
 
-    // Set POST method and ajax file path
-    xhttp.open("POST", "upload.php", true);
-
-    // call on request changes state
-    xhttp.onreadystatechange = function() {
+      // call on request changes state
+      xhttp.onreadystatechange = function() {
       if (this.readyState == 4 && this.status == 200) {
-
-        alert("In the function!!!!");
 
         var response = this.responseText;
         if(response == 1){
           alert("Upload successfully.");
         }else{
-          alert("File not uploaded.");
         }
       }
-    };
+      };
 
-    // Send request with data
-    xhttp.send(formData);
+      // Send request with data
+      xhttp.send(formData);
+    }
+  }else{
+    alert("This is not an Excel File!");
+    dropArea.classList.remove("active");
+    dragText.textContent = "Drag & Drop to Upload File";
   }
+
+  
 
 }
