@@ -35,13 +35,11 @@
       <header>Drag & Drop to Upload File</header>
       <span>OR</span>
       <button>Browse Local File</button>
-      <form action="upload.php" method="post" enctype="multipart/form-data" id="dragDropForm">
-      <input type="file" name="uploadFile" id="file_upload" accept=".xlsx, .xls" hidden/>
+      <form action="upload.php" method="post" enctype="multipart/form-data">
+      <input type="file" name="uploadFile" id="uploadFile" accept=".xlsx, .xls" hidden/>
     </div>
     <input type="submit" value="Submit" class="confirmSubmit" onclick="checkFile()" id="submit"> 
-    </form>
-
-    
+    </form>    
   </div>
 
   <footer section id="member">
@@ -52,7 +50,10 @@
       <li>YEOH HUEY JING <br> (159811)</li>
     </ul>
   </footer>
+  
+
 </div>
+  
   
   <script>
       function myalert() {
